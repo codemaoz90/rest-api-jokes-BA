@@ -4,16 +4,33 @@ window.onload = () => {
 
 	const fetchJoke = async () => {
 		try {
-			const url = "https://icanhazdadjoke.com/";
-			const response = await fetch(url, {
-				method: "GET",
-				headers: {
-					Accept: "application/json",
-				},
-			});
-			const data = await response.json();
-			console.log(data);
-			joke.innerHTML = ` "${data.joke}"`;
+			const randonNumber = Math.random() * 10;
+			console.log(randonNumber);
+			// Fuente 1
+			if (randonNumber > 5) {
+				const url = "https://icanhazdadjoke.com/";
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						Accept: "application/json",
+					},
+				});
+				const data = await response.json();
+				//console.log(data);
+				joke.innerHTML = ` "${data.joke}"`;
+			} else {
+				// Fuente 2 de jokes
+				const url = "https://api.chucknorris.io/jokes/random";
+				const response = await fetch(url, {
+					method: "GET",
+					headers: {
+						Accept: "application/json",
+					},
+				});
+				const data = await response.json();
+				//console.log(data);
+				joke.innerHTML = ` "${data.value}"`;
+			}
 		} catch (error) {
 			console.log(error);
 		}
@@ -43,7 +60,7 @@ window.onload = () => {
 			img.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 			temp.innerHTML = `${mainTemp}<span>ºC</span>`;
 			title.innerHTML = name;
-			console.log(weather, main);
+			//	console.log(weather, main);
 		} catch (error) {
 			console.log(error);
 		}
