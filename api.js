@@ -1,5 +1,7 @@
 window.onload = () => {
-	const btn = document.getElementById("btn");
+	const btn = document.getElementById("btn"),
+		joke = document.getElementById("joke");
+
 	const fetchJoke = async () => {
 		try {
 			const url = "https://icanhazdadjoke.com/";
@@ -11,6 +13,7 @@ window.onload = () => {
 			});
 			const data = await response.json();
 			console.log(data);
+			joke.innerHTML = ` "${data.joke}"`;
 		} catch (error) {
 			console.log(error);
 		}
