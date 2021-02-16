@@ -13,10 +13,22 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
+		<!-- Data fetch from API -->
 		<div class="main">
+			<section class="weather">
+				<div class="weather-img">
+					<img id="img" alt="" />
+				</div>
+
+				<div class="weather-body">
+					<h1 id="title"></h1>
+					<p id="temp"></p>
+				</div>
+			</section>
 			<section class="card">
 				<h1 class="card--title">Random Jokes</h1>
 				<p class="card--text" id="joke">""</p>
+
 				<button class="card--button" id="btn">Siguiente Chiste</button>
 			</section>
 		</div>
